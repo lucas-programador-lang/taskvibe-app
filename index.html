@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskVibe - Baixe o App e Ganhe Agora</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6200EE;
+            --secondary: #00BFA5;
+            --dark: #121212;
+            --light: #F8F9FA;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 24dp;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        h1 { font-size: 2.5rem; margin: 10px 0; font-weight: 800; }
+        p { color: #aaa; margin-bottom: 30px; font-size: 1.1rem; }
+
+        .btn-download {
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: inline-block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 191, 165, 0.4);
+        }
+
+        .btn-download:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 191, 165, 0.6);
+        }
+
+        .info {
+            margin-top: 25px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .version {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Substitua pelo link da sua logo no GitHub ou imgur -->
+        <img src="logo_taskvibe.png" alt="TaskVibe Logo" class="logo">
+        
+        <div class="version">Versão Beta 1.0.0</div>
+        <h1>TaskVibe</h1>
+        <p>Complete missões diárias, envie provas e receba via PIX diretamente no seu bolso.</p>
+
+        <!-- O LINK DO APK ABAIXO -->
+        <a href="TaskVibe.apk" class="btn-download">
+            BAIXAR APK (Android)
+        </a>
+
+        <div class="info">
+            *Requer Android 7.0 ou superior.<br>
+            Como não está na Play Store, habilite "Fontes Desconhecidas" nas configurações.
+        </div>
+    </div>
+
+</body>
+</html>
