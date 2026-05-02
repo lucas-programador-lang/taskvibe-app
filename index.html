@@ -3,170 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskVibe - Baixe o App e Ganhe Agora</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <title>TaskVibe - O Futuro das Recompensas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #6200EE;
-            --primary-glow: rgba(98, 0, 238, 0.4);
+            --primary-light: #9d4edd;
             --secondary: #00BFA5;
-            --secondary-dark: #008f7a;
-            --bg-dark: #0a0a0a;
-            --text-main: #ffffff;
-            --text-muted: #a1a1aa;
+            --bg-dark: #050505;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
         }
 
         * {
             box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
             margin: 0;
-            font-family: 'Inter', sans-serif;
-            /* Fundo com degradê radial sutil */
-            background: radial-gradient(circle at 50% 0%, #1e1e2e 0%, var(--bg-dark) 100%);
-            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: #ffffff;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            text-align: center;
-            padding: 20px;
-            overflow-x: hidden;
+            overflow: hidden;
+            position: relative;
         }
 
-        /* Animação de entrada */
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Efeito de Luzes no Fundo (Ambient Glow) */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            filter: blur(150px);
+            top: -50px;
+            left: -50px;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        body::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--secondary);
+            filter: blur(150px);
+            bottom: -50px;
+            right: -50px;
+            opacity: 0.15;
+            z-index: 0;
         }
 
         .container {
-            max-width: 480px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 40px 30px;
-            border-radius: 28px;
-            /* Efeito Glassmorphism Premium */
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-left: 1px solid rgba(255, 255, 255, 0.05);
-            border-right: 1px solid rgba(255, 255, 255, 0.02);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 
-                        0 0 40px var(--primary-glow);
-            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            position: relative;
+            z-index: 10;
+            max-width: 440px;
+            width: 90%;
+            padding: 50px 40px;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            text-align: center;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+            animation: fadeIn 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         .logo {
-            width: 90px;
-            height: 90px;
-            margin-bottom: 24px;
-            border-radius: 22px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            width: 100px;
+            height: 100px;
+            margin-bottom: 30px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            padding: 4px; /* Borda gradiente */
+            display: inline-block;
+            box-shadow: 0 20px 40px rgba(98, 0, 238, 0.3);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
             object-fit: cover;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: var(--bg-dark);
         }
 
         .version {
-            background: rgba(255, 255, 255, 0.08);
-            color: #d4d4d8;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-            display: inline-block;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary);
+            font-weight: 800;
+            margin-bottom: 10px;
+            display: block;
         }
 
-        h1 { 
-            font-size: 2.8rem; 
-            margin: 0 0 12px 0; 
-            font-weight: 800; 
-            /* Texto com cor degradê */
-            background: linear-gradient(135deg, #ffffff 0%, #c4b5fd 100%);
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0 0 15px 0;
+            background: linear-gradient(to right, #fff, #a5a5a5);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
+            letter-spacing: -2px;
         }
 
-        p { 
-            color: var(--text-muted); 
-            margin: 0 0 32px 0; 
-            font-size: 1.05rem; 
+        p {
+            color: #a1a1aa;
+            font-size: 1.1rem;
             line-height: 1.6;
-            padding: 0 10px;
+            margin-bottom: 40px;
+            font-weight: 400;
         }
 
         .btn-download {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
-            color: white;
+            background: #ffffff;
+            color: #000000;
             text-decoration: none;
-            padding: 18px 32px;
-            border-radius: 50px;
+            padding: 20px 40px;
+            border-radius: 20px;
             font-weight: 700;
             font-size: 1.1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 191, 165, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            width: 100%;
+            gap: 15px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-download:hover {
+            transform: scale(1.03);
+            background: var(--secondary);
+            color: #fff;
+            box-shadow: 0 15px 40px rgba(0, 191, 165, 0.4);
         }
 
         .btn-download svg {
             width: 24px;
-            height: 24px;
             fill: currentColor;
-            transition: transform 0.3s ease;
-        }
-
-        .btn-download:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 191, 165, 0.5);
-            background: linear-gradient(135deg, #00d4b8 0%, var(--secondary-dark) 100%);
-        }
-
-        .btn-download:hover svg {
-            transform: translateY(2px);
         }
 
         .info {
-            margin-top: 28px;
-            font-size: 0.85rem;
-            color: #71717a;
-            line-height: 1.5;
+            margin-top: 35px;
+            font-size: 0.8rem;
+            color: #52525b;
+            line-height: 1.6;
+        }
+
+        .info b { color: #888; }
+
+        /* Animação de Floating */
+        .container {
+            animation: fadeIn 1s ease-out, float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Logo -->
-        <img src="logo_taskvibe.png" alt="TaskVibe Logo" class="logo">
+        <div class="logo">
+            <!-- Substitua pelo seu arquivo real -->
+            <img src="logo_taskvibe.png" alt="TV">
+        </div>
         
-        <div class="version">Versão Beta 1.0.0</div>
+        <span class="version">Official Beta v1.0.0</span>
         
         <h1>TaskVibe</h1>
-        <p>Complete missões diárias, envie provas e receba via PIX diretamente no seu bolso.</p>
+        <p>A nova era de micro-tarefas chegou. Realize missões e saque via PIX instantaneamente.</p>
 
-        <!-- Botão de Download com Ícone do Android embutido -->
         <a href="TaskVibe.apk" class="btn-download">
             <svg viewBox="0 0 24 24">
-                <path d="M17.523 15.3414C17.523 15.3414 17.523 15.3414 17.523 15.3414C17.0652 15.3414 16.6946 14.9708 16.6946 14.513C16.6946 14.0553 17.0652 13.6847 17.523 13.6847C17.9807 13.6847 18.3513 14.0553 18.3513 14.513C18.3513 14.9708 17.9807 15.3414 17.523 15.3414ZM6.47704 15.3414C6.01931 15.3414 5.64868 14.9708 5.64868 14.513C5.64868 14.0553 6.01931 13.6847 6.47704 13.6847C6.93478 13.6847 7.30541 14.0553 7.30541 14.513C7.30541 14.9708 6.93478 15.3414 6.47704 15.3414ZM18.1685 11.2312L20.0243 8.01633C20.134 7.82635 20.0688 7.5836 19.8788 7.47391C19.6888 7.36421 19.446 7.42944 19.3364 7.61942L17.4497 10.8871C15.8655 10.1565 14.0044 9.73691 12 9.73691C9.99564 9.73691 8.13446 10.1565 6.55026 10.8871L4.66365 7.61942C4.55395 7.42944 4.3112 7.36421 4.12122 7.47391C3.93124 7.5836 3.86602 7.82635 3.97571 8.01633L5.83151 11.2312C2.51862 13.0456 0.286255 16.3986 0 20.3546H24C23.7137 16.3986 21.4814 13.0456 18.1685 11.2312Z"/>
+                <path d="M17.523 15.3414C17.0652 15.3414 16.6946 14.9708 16.6946 14.513C16.6946 14.0553 17.0652 13.6847 17.523 13.6847C17.9807 13.6847 18.3513 14.0553 18.3513 14.513C18.3513 14.9708 17.9807 15.3414 17.523 15.3414ZM6.47704 15.3414C6.01931 15.3414 5.64868 14.9708 5.64868 14.513C5.64868 14.0553 6.01931 13.6847 6.47704 13.6847C6.93478 13.6847 7.30541 14.0553 7.30541 14.513C7.30541 14.9708 6.93478 15.3414 6.47704 15.3414ZM18.1685 11.2312L20.0243 8.01633C20.134 7.82635 20.0688 7.5836 19.8788 7.47391C19.6888 7.36421 19.446 7.42944 19.3364 7.61942L17.4497 10.8871C15.8655 10.1565 14.0044 9.73691 12 9.73691C9.99564 9.73691 8.13446 10.1565 6.55026 10.8871L4.66365 7.61942C4.55395 7.42944 4.3112 7.36421 4.12122 7.47391C3.93124 7.5836 3.86602 7.82635 3.97571 8.01633L5.83151 11.2312C2.51862 13.0456 0.286255 16.3986 0 20.3546H24C23.7137 16.3986 21.4814 13.0456 18.1685 11.2312Z"/>
             </svg>
-            BAIXAR APK
+            OBTER TASKVIBE
         </a>
 
         <div class="info">
-            *Requer Android 7.0 ou superior.<br>
-            Como o app ainda não está na Play Store, lembre-se de habilitar a instalação de <b>"Fontes Desconhecidas"</b> nas configurações do seu celular.
+            Compatível com Android 7.0+ <br>
+            <b>Dica:</b> Permita a instalação de fontes desconhecidas para prosseguir com o download.
         </div>
     </div>
 
